@@ -1,0 +1,40 @@
+﻿<Window x:Class="_22_NguyenThaiThinh_Ass1.AdminReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
+        mc:Ignorable="d"
+        Title="AdminReport" Height="450" Width="800">
+    <Grid>
+        <!-- Add DatePickers for StartDate and EndDate -->
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Start Date:"
+                       VerticalAlignment="Center" />
+            <DatePicker x:Name="StartDatePicker"
+                        Margin="5" />
+            <TextBlock Text="End Date:"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0" />
+            <DatePicker x:Name="EndDatePicker"
+                        Margin="5" />
+            <Button Content="Generate Report"
+                    Click="GenerateReport_Click"
+                    Width="100"
+                    Margin="10,0,0,0" />
+        </StackPanel>
+
+        <!-- Add ListView to display sales report -->
+        <ListView x:Name="SalesListView"
+                  Margin="0,133,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Sale Date"
+                                    DisplayMemberBinding="{Binding SaleDate}"  Width="200"/>
+                    <GridViewColumn Header="Total Sales"
+                                    DisplayMemberBinding="{Binding TotalSales}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AdminMember.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminReport.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Client.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AdminMember.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminReport.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Client.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

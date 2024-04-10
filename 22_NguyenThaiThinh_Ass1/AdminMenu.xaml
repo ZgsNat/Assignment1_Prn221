@@ -1,0 +1,53 @@
+﻿<Window x:Class="_22_NguyenThaiThinh_Ass1.AdminMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
+        mc:Ignorable="d"
+        Title="AdminMenu"
+        Height="450"
+        Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Label Content="FStore"
+               HorizontalAlignment="Center"
+               Margin="0,21,0,0"
+               VerticalAlignment="Top"
+               FontWeight="Bold"
+               FontSize="50"
+               Foreground="Green"
+               FontFamily="Courier New, monospace" />
+        <Button Content="Member Management" Name="Member"
+                HorizontalAlignment="Left"
+                Margin="194,144,0,0"
+                VerticalAlignment="Top"
+                Height="68"
+                Width="152"
+                Click="Member_Click" />
+        <Button Content="Product Management" Name="Product"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="68"
+                Width="152"
+                Margin="194,283,0,0" Click="Product_Click"/>
+        <Button Content="Order Management" Name="Order"
+                HorizontalAlignment="Left"
+                Margin="478,144,0,0"
+                VerticalAlignment="Top"
+                Height="68"
+                Width="152" Click="Order_Click"/>
+        <Button Content="Report" Name="Report"
+                HorizontalAlignment="Left"
+                Margin="478,283,0,0"
+                VerticalAlignment="Top"
+                Height="68"
+                Width="152" Click="Report_Click"/>
+
+    </Grid>
+</Window>
