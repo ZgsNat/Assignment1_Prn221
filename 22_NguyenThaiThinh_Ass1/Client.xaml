@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
         mc:Ignorable="d"
-        Title="Client"
+        Title="22_NguyenThaiThinh_Ass1"
         Height="470"
         Width="1100">
     <Grid>

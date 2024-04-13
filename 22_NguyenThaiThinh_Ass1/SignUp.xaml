@@ -1,0 +1,61 @@
+﻿<Window x:Class="_22_NguyenThaiThinh_Ass1.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
+        mc:Ignorable="d"
+        Title="22_NguyenThaiThinh_Ass1" Height="450" Width="200">
+    <Grid>
+        <StackPanel Background="LightBlue"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left"
+                    Width="Auto">
+            <Label Name="lbTitle"
+                   Foreground="Red"
+                   FontWeight="DemiBold"
+                   FontSize="20"
+                   Content="Member Information" />
+            <!--<Label Name="lbMemberId"
+                   Content="Member Id" />
+            <TextBox Name="txtMemberId"
+                     HorizontalAlignment="Stretch"
+                     Height="25"
+                     />-->
+            <Label Name="lbEmail"
+                   Content="Email" />
+            <TextBox Name="txtEmail"
+                     HorizontalAlignment="Stretch"
+                     Height="25"
+                     />
+            <Label Name="lbCompanyName"
+                   Content="Company Name" />
+            <TextBox Name="txtCompanyName"
+                     HorizontalAlignment="Stretch"
+                     Height="25"
+                     />
+            <Label Name="lbCity"
+                   Content="City" />
+            <TextBox Name="txtCity"
+                     HorizontalAlignment="Stretch"
+                     Height="25"
+                    />
+            <Label Name="lbCountry"
+                   Content="Country" />
+            <TextBox Name="txtCountry"
+                     HorizontalAlignment="Stretch"
+                     Height="25"
+                     />
+            <Label Name="lbPassword"
+                   Content="Password" />
+            <TextBox Name="txtPassword"
+                     HorizontalAlignment="Stretch"
+                     Height="25" />
+            <Button x:Name="btnInsert"
+                    Margin="10"
+                    Width="80"
+                    Content="Create"
+                    Click="btnInsert_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

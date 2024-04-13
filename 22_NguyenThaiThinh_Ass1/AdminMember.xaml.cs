@@ -93,24 +93,39 @@ namespace _22_NguyenThaiThinh_Ass1
             try
             {
                 Member member = GetMemberObjectToAdd();
-                _memberRepository.Insert(member);
-                LoadMemberList();
-                MessageBox.Show($"{member.Email} insert Successfully ", "Insert Member");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to insert member {member.Email}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _memberRepository.Insert(member);
+                    LoadMemberList();
+                    MessageBox.Show($"{member.Email} insert Successfully ", "Insert Member");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Member member = GetMemberObject();
-                _memberRepository.Update(member);
-                LoadMemberList();
-                MessageBox.Show($"{member.Email} Update Successfully ", "Update Member");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to update member {member.Email}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _memberRepository.Update(member);
+                    LoadMemberList();
+                    MessageBox.Show($"{member.Email} Update Successfully ", "Update Member");
+                }
             }
             catch (Exception ex)
             {
@@ -118,20 +133,29 @@ namespace _22_NguyenThaiThinh_Ass1
             }
         }
 
+
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Member member = GetMemberObject();
-                _memberRepository.Delete(member);
-                LoadMemberList();
-                MessageBox.Show($"{member.Email} Delete Successfully ", "Delete Member");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete member {member.Email}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _memberRepository.Delete(member);
+                    LoadMemberList();
+                    MessageBox.Show($"{member.Email} Delete Successfully ", "Delete Member");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {

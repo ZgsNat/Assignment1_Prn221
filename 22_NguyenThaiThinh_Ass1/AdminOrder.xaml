@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
         mc:Ignorable="d"
-        Title="AdminOrder" Height="650" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="22_NguyenThaiThinh_Ass1" Height="650" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel VerticalAlignment="Top"
                    Margin="10">
@@ -187,6 +187,10 @@ Path=SelectedItem}" />
                             Width="80"
                             Content="Delete"
                             Click="btnDelete_Click" />
+                    <Button Content="Sort by Date"
+                            Click="btnSortByDate_Click"
+                            Width="80"
+                            Margin="10" />
                 </StackPanel>
                 <ListView Grid.Row="2"
                           Name="lvOrders"

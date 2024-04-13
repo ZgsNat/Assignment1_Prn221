@@ -10,8 +10,7 @@
         Height="600"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <DockPanel VerticalAlignment="Top"
-                   Margin="10">
+        <Canvas VerticalAlignment="Top">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -36,6 +35,20 @@
                     <Label Content="Product Price" />
                     <TextBox Name="SearchPrice"
                              TextChanged="TextBox_TextChanged" />
+                    <Label Content="Product ID" />
+                    <TextBox Name="SearchId"
+                             TextChanged="TextBox_TextChanged" />
+                    <Label Content="Product in Stock" />
+                    <TextBox Name="SearchUnitInStock"
+                             TextChanged="TextBox_TextChanged" />
+                    <Label Content="Range Price" />
+
+                    <TextBox x:Name="MinPrice"
+                             TextChanged="TextBox_TextChanged"
+                             Margin="5" />
+                    <TextBox x:Name="MaxPrice"
+                             TextChanged="TextBox_TextChanged"
+                             Margin="5" />
                 </StackPanel>
                 <StackPanel Background="LightBlue"
                             Orientation="Vertical"
@@ -155,6 +168,6 @@ Path=SelectedItem}" />
                     </ListView.View>
                 </ListView>
             </Grid>
-        </DockPanel>
+        </Canvas>
     </Grid>
 </Window>

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
         mc:Ignorable="d"
-        Title="AdminReport" Height="450" Width="800">
+        Title="22_NguyenThaiThinh_Ass1"
+        Height="450"
+        Width="800">
     <Grid>
         <!-- Add DatePickers for StartDate and EndDate -->
         <StackPanel Orientation="Vertical">
@@ -26,13 +28,35 @@
 
         <!-- Add ListView to display sales report -->
         <ListView x:Name="SalesListView"
-                  Margin="0,133,0,0">
+                  Margin="0,133,0,0"
+                  SelectionChanged="OrdersListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Sale Date"
-                                    DisplayMemberBinding="{Binding SaleDate}"  Width="200"/>
+                                    DisplayMemberBinding="{Binding SaleDate}"
+                                    Width="200" />
                     <GridViewColumn Header="Total Sales"
-                                    DisplayMemberBinding="{Binding TotalSales}" Width="200"/>
+                                    DisplayMemberBinding="{Binding TotalSales}"
+                                    Width="200" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Add ListView to display orders for selected sale -->
+        <ListView x:Name="OrdersListView"
+                  Margin="0,285,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Order ID"
+                                    DisplayMemberBinding="{Binding OrderId}"
+                                    Width="100" />
+                    <GridViewColumn Header="Member ID"
+                                    DisplayMemberBinding="{Binding MemberId}"
+                                    Width="100" />
+                    <GridViewColumn Header="Order Date"
+                                    DisplayMemberBinding="{Binding OrderDate}"
+                                    Width="150" />
+                    <!-- Add more columns as needed -->
                 </GridView>
             </ListView.View>
         </ListView>

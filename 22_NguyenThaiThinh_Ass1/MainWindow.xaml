@@ -62,7 +62,19 @@
                 Margin="464,346,0,0"
                 VerticalAlignment="Top"
                 Height="49"
-                Width="172" FontWeight="Bold" FontSize="20"
+                Width="172"
+                FontWeight="Bold"
+                FontSize="20"
                 Click="Button_Click" />
+        <Button Content="SignUp"
+                IsDefault="True"
+                HorizontalAlignment="Left"
+                Margin="162,346,0,0"
+                VerticalAlignment="Top"
+                Height="49"
+                Width="172"
+                FontWeight="Bold"
+                FontSize="20"
+                Click="SignUp_Click" />
     </Grid>
 </Window>

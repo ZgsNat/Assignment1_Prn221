@@ -2,7 +2,9 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,6 +46,35 @@ namespace _22_NguyenThaiThinh_Ass1
             try
             {
                 SalesListView.ItemsSource = query.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void OrdersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string temp = SalesListView.SelectedItem.ToString();
+                string[] parts = temp.Split('=')[1].Trim().Split(' ');
+                string dateString = parts[0] + " " + parts[1] + " " + parts[2];
+
+                // Parse the date string into a DateTime object
+                DateTime saleDate = DateTime.Parse(dateString);
+
+                if (saleDate != null)
+                {
+
+                    DateTime selectedSaleDate = saleDate;
+
+
+                    var ordersInSelectedDay = context.Orders
+                        .Where(o => o.OrderDate.Date == selectedSaleDate.Date) 
+                        .ToList();
+
+                    OrdersListView.ItemsSource = ordersInSelectedDay;
+                }
             }
             catch (Exception ex)
             {

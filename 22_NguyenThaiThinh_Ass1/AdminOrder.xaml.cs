@@ -95,9 +95,16 @@ namespace _22_NguyenThaiThinh_Ass1
             try
             {
                 Order order = GetOrderObject();
-                _orderRepository.Update(order);
-                LoadOrderList();
-                MessageBox.Show($"{order.OrderId} Update Successfully ", "Update Member");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to update order {order.OrderId}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _orderRepository.Update(order);
+                    LoadOrderList();
+                    MessageBox.Show($"{order.OrderId} Update Successfully ", "Update Member");
+                }
             }
             catch (Exception ex)
             {
@@ -107,8 +114,43 @@ namespace _22_NguyenThaiThinh_Ass1
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Order selectedOrder = lvOrders.SelectedItem as Order;
 
+                if (selectedOrder != null)
+                {
+                    // Show a confirmation dialog
+                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete order {selectedOrder.OrderId}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        // Remove order details related to the selected order
+                        var dbcontext = new Ass1_Prn221_Bl5Context();
+                        var orderDetailsToRemove = dbcontext.OrderDetails.Where(od => od.OrderId == selectedOrder.OrderId);
+                        dbcontext.OrderDetails.RemoveRange(orderDetailsToRemove);
+                        dbcontext.SaveChanges();
+
+                        // Delete the selected order
+                        _orderRepository.Delete(selectedOrder);
+
+                        // Reload the order list
+                        LoadOrderList();
+
+                        MessageBox.Show($"Order {selectedOrder.OrderId} deleted successfully", "Delete Order");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select an order to delete", "Delete Order");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
+
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -122,29 +164,38 @@ namespace _22_NguyenThaiThinh_Ass1
             try
             {
                 Order o = GetOrderObjectToAdd();
-                _orderRepository.Insert(o);
-                Product temp = lvProducts.SelectedItem as Product;
-                temp.UnitInStock = -int.Parse(txtQuantity.Text);
-                _productRepository.Insert(temp);
-                OrderDetail od = new OrderDetail {
-                    OrderId = o.OrderId,
-                    ProductId = int.Parse(txtProductId2.Text),
-                    UnitPrice = ((Product)lvProducts.SelectedItem).UnitPrice,
-                    Quantity = int.Parse(txtQuantity.Text),
-                    Discount = float.Parse(txtDiscount.Text)
-                };
-                var dbcontext = new Ass1_Prn221_Bl5Context();
-                dbcontext.OrderDetails.Add(od);
-                dbcontext.SaveChanges();
-                MessageBox.Show("Order create Successfully!");
-                lvProducts.ItemsSource = _productRepository.GetProducts();
-                lvOrders.ItemsSource = _orderRepository.GetOrders();
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to create this order?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _orderRepository.Insert(o);
+                    Product temp = lvProducts.SelectedItem as Product;
+                    temp.UnitInStock = -int.Parse(txtQuantity.Text);
+                    _productRepository.Insert(temp);
+                    OrderDetail od = new OrderDetail
+                    {
+                        OrderId = o.OrderId,
+                        ProductId = int.Parse(txtProductId2.Text),
+                        UnitPrice = ((Product)lvProducts.SelectedItem).UnitPrice,
+                        Quantity = int.Parse(txtQuantity.Text),
+                        Discount = float.Parse(txtDiscount.Text)
+                    };
+                    var dbcontext = new Ass1_Prn221_Bl5Context();
+                    dbcontext.OrderDetails.Add(od);
+                    dbcontext.SaveChanges();
+                    MessageBox.Show("Order created Successfully!");
+                    lvProducts.ItemsSource = _productRepository.GetProducts();
+                    lvOrders.ItemsSource = _orderRepository.GetOrders();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show (ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
+
 
         private void lvMemberChange(object sender, SelectionChangedEventArgs e)
         {
@@ -174,6 +225,20 @@ namespace _22_NguyenThaiThinh_Ass1
         private void lvProductsChange(object sender, SelectionChangedEventArgs e)
         {
             txtProductId2.DataContext = lvProducts.SelectedItem;
+        }
+
+        private void btnSortByDate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dbcontext = new Ass1_Prn221_Bl5Context();
+                var sortedOrders = dbcontext.Orders.OrderBy(o => o.OrderDate).ToList();
+                lvOrders.ItemsSource = sortedOrders;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

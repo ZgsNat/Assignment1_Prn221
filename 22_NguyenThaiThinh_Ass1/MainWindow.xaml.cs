@@ -66,5 +66,11 @@ namespace _22_NguyenThaiThinh_Ass1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signUp = new SignUp(_memberRepository);
+            signUp.Show();
+        }
     }
 }

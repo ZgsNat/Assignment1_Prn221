@@ -70,3 +70,5 @@ D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_Ngu
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\AdminReport.baml
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\Client.g.cs
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\Client.baml
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\SignUp.g.cs
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\SignUp.baml

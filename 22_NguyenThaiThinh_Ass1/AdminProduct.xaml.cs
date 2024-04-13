@@ -113,24 +113,39 @@ namespace _22_NguyenThaiThinh_Ass1
             try
             {
                 Product product = GetProductObjectToAdd();
-                _productRepository.Insert(product);
-                LoadProductList();
-                MessageBox.Show($"{product.ProductName} insert Successfully ", "Insert Product");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to insert product {product.ProductName}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _productRepository.Insert(product);
+                    LoadProductList();
+                    MessageBox.Show($"{product.ProductName} insert Successfully ", "Insert Product");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Product product = GetProductObject();
-                _productRepository.Update(product);
-                LoadProductList();
-                MessageBox.Show($"{product.ProductName} Update Successfully ", "Update Product");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to update product {product.ProductName}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _productRepository.Update(product);
+                    LoadProductList();
+                    MessageBox.Show($"{product.ProductName} Update Successfully ", "Update Product");
+                }
             }
             catch (Exception ex)
             {
@@ -138,20 +153,29 @@ namespace _22_NguyenThaiThinh_Ass1
             }
         }
 
+
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Product product = GetProductObject();
-                _productRepository.Delete(product);
-                LoadProductList();
-                MessageBox.Show($"{product.ProductName} Delete Successfully ", "Delete Product");
+
+                // Show a confirmation dialog
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete product {product.ProductName}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _productRepository.Delete(product);
+                    LoadProductList();
+                    MessageBox.Show($"{product.ProductName} Delete Successfully ", "Delete Product");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
@@ -161,12 +185,31 @@ namespace _22_NguyenThaiThinh_Ass1
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var dbcontext = new Ass1_Prn221_Bl5Context();
-            if(SearchPrice.Text=="")
-            lvProducts.ItemsSource = dbcontext.Products.Where(p => p.ProductName.Contains(SearchName.Text)).ToList();
-            else
+            try
             {
-                lvProducts.ItemsSource = dbcontext.Products.Where(p => p.ProductName.Contains(txtProductName.Text) && p.UnitPrice == int.Parse(SearchPrice.Text)).ToList();
+                var dbcontext = new Ass1_Prn221_Bl5Context();
+                var query = dbcontext.Products.Where(p => p.ProductName.Contains(SearchName.Text)).ToList();
+
+                if (!string.IsNullOrEmpty(SearchPrice.Text))
+                {
+                    // Convert input to decimal
+                    decimal minPrice = decimal.TryParse(MinPrice.Text, out minPrice) ? minPrice : decimal.MinValue;
+                    decimal maxPrice = decimal.TryParse(MaxPrice.Text, out maxPrice) ? maxPrice : decimal.MaxValue;
+
+                    // Filter products within the specified price range
+                    query = query.Where(p => p.UnitPrice >= minPrice && p.UnitPrice <= maxPrice).ToList();
+                }
+
+                if (SearchId.Text != "")
+                    query = query.Where(p => p.ProductId == int.Parse(SearchId.Text)).ToList();
+                if (SearchUnitInStock.Text != "")
+                    query = query.Where(p => p.UnitInStock == int.Parse(SearchUnitInStock.Text)).ToList();
+
+                lvProducts.ItemsSource = query;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
