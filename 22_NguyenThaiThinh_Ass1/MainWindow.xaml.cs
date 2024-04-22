@@ -51,7 +51,7 @@ namespace _22_NguyenThaiThinh_Ass1
                 {
                     if(_memberRepository.DetectMember(enteredEmail,enteredPassword)!= null)
                     {
-                        Client client = new Client(_memberRepository.DetectMember(enteredEmail, enteredPassword), _memberRepository, _orderRepository);
+                        CLientMenu client = new CLientMenu(_memberRepository.DetectMember(enteredEmail, enteredPassword), _memberRepository, _orderRepository, _productRepository);
                         client.Show();
                         this.Close();
                     }

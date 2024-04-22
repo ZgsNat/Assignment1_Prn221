@@ -55,5 +55,12 @@ namespace _22_NguyenThaiThinh_Ass1
             AdminReport adminReport = new AdminReport();
             adminReport.Show();
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(_productRepository,_memberRepository);
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

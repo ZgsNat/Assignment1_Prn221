@@ -72,3 +72,9 @@ D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_Ngu
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\Client.baml
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\SignUp.g.cs
 D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\SignUp.baml
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\CLientMenu.g.cs
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\obj\Debug\net6.0-windows\CLientMenu.baml
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\bin\Debug\net6.0-windows\EPPlus.dll
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\bin\Debug\net6.0-windows\EPPlus.Interfaces.dll
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\bin\Debug\net6.0-windows\EPPlus.System.Drawing.dll
+D:\tai lieu hoc tap\ky 7_block5\PRN221\22_NguyenThaiThinh_Ass1_Prn211_Bl5\22_NguyenThaiThinh_Ass1\bin\Debug\net6.0-windows\Microsoft.IO.RecyclableMemoryStream.dll

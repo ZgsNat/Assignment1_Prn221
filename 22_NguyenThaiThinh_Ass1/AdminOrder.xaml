@@ -191,6 +191,10 @@ Path=SelectedItem}" />
                             Click="btnSortByDate_Click"
                             Width="80"
                             Margin="10" />
+                    <Button Content="Export to Excel"
+                            Click="btnExport_Click"
+                            Width="100"
+                            Margin="10" />
                 </StackPanel>
                 <ListView Grid.Row="2"
                           Name="lvOrders"

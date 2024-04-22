@@ -28,7 +28,7 @@ namespace _22_NguyenThaiThinh_Ass1
         private readonly IMemberRepository _memberRepository;
         private readonly IProductRepository _productRepository;
         private readonly IOrderRepository _orderRepository;
-        public Client(Member m, IMemberRepository memberRepository, IOrderRepository orderRepository)
+        public Client(Member m, IMemberRepository memberRepository, IOrderRepository orderRepository, IProductRepository productRepository)
         {
             _context = new Ass1_Prn221_Bl5Context();
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace _22_NguyenThaiThinh_Ass1
             DataContext = member;
             _memberRepository = memberRepository;
             _orderRepository = orderRepository;
+            _productRepository = productRepository;
             lvOrders.ItemsSource = _context.Orders.Where(O => O.MemberId == m.MemberId).ToList();
             ProductItems.ItemsSource = _context.Products.ToList();
         }
@@ -106,6 +107,12 @@ namespace _22_NguyenThaiThinh_Ass1
         private void ProductItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(_productRepository, _memberRepository);
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

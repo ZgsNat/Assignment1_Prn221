@@ -153,6 +153,11 @@
                     Width="80"
                     Content="Update"
                     Click="btnUpdate_Click" />
+            <Button x:Name="btnBack"
+                    Margin="10"
+                    Width="80"
+                    Content="Back"
+                    Click="Back_Click" />
 
         </StackPanel>
     </Grid>

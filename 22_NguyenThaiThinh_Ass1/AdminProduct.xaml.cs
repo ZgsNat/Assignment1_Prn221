@@ -190,7 +190,7 @@ namespace _22_NguyenThaiThinh_Ass1
                 var dbcontext = new Ass1_Prn221_Bl5Context();
                 var query = dbcontext.Products.Where(p => p.ProductName.Contains(SearchName.Text)).ToList();
 
-                if (!string.IsNullOrEmpty(SearchPrice.Text))
+                if (!string.IsNullOrEmpty(MinPrice.Text) && !string.IsNullOrEmpty(MaxPrice.Text))
                 {
                     // Convert input to decimal
                     decimal minPrice = decimal.TryParse(MinPrice.Text, out minPrice) ? minPrice : decimal.MinValue;
@@ -199,7 +199,8 @@ namespace _22_NguyenThaiThinh_Ass1
                     // Filter products within the specified price range
                     query = query.Where(p => p.UnitPrice >= minPrice && p.UnitPrice <= maxPrice).ToList();
                 }
-
+                if (SearchPrice.Text != "")
+                    query = query.Where(p => p.UnitPrice == int.Parse(SearchPrice.Text)).ToList();
                 if (SearchId.Text != "")
                     query = query.Where(p => p.ProductId == int.Parse(SearchId.Text)).ToList();
                 if (SearchUnitInStock.Text != "")

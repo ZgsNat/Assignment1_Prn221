@@ -37,9 +37,9 @@ namespace _22_NguyenThaiThinh_Ass1
             DateTime endDate = EndDatePicker.SelectedDate ?? DateTime.MaxValue;
 
             var query = from order in context.Orders
-                        where order.OrderDate >= startDate && order.OrderDate <= endDate
+                        where order.OrderDate.Date >= startDate.Date && order.OrderDate.Date <= endDate.Date
                         join orderDetail in context.OrderDetails on order.OrderId equals orderDetail.OrderId
-                        group new { orderDetail.UnitPrice, orderDetail.Quantity } by order.OrderDate into g
+                        group new { orderDetail.UnitPrice, orderDetail.Quantity } by order.OrderDate.Date into g
                         orderby g.Sum(x => x.UnitPrice * x.Quantity) descending
                         select new { SaleDate = g.Key, TotalSales = g.Sum(x => x.UnitPrice * x.Quantity) };
 

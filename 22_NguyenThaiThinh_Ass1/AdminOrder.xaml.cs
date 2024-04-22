@@ -13,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.IO;
 
 namespace _22_NguyenThaiThinh_Ass1
 {
@@ -238,6 +241,61 @@ namespace _22_NguyenThaiThinh_Ass1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private void ExportToExcel(List<Order> orders)
+        {
+            // Set the license context to NonCommercial
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage excelPackage = new ExcelPackage())
+            {
+                // Create a new worksheet
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Orders");
+
+                // Set header row
+                worksheet.Cells["A1"].Value = "Order ID";
+                worksheet.Cells["B1"].Value = "Member ID";
+                worksheet.Cells["C1"].Value = "Order Date";
+                worksheet.Cells["D1"].Value = "Required Date";
+                worksheet.Cells["E1"].Value = "Shipped Date";
+                worksheet.Cells["F1"].Value = "Freight";
+
+                // Set the data rows
+                int row = 2;
+                foreach (var order in orders)
+                {
+                    worksheet.Cells[row, 1].Value = order.OrderId;
+                    worksheet.Cells[row, 2].Value = order.MemberId;
+                    worksheet.Cells[row, 3].Value = order.OrderDate.ToString("yyyy-MM-dd");
+                    worksheet.Cells[row, 4].Value = order.RequiredDate?.ToString("yyyy-MM-dd");
+                    worksheet.Cells[row, 5].Value = order.ShippedDate?.ToString("yyyy-MM-dd");
+                    worksheet.Cells[row, 6].Value = order.Freight;
+                    row++;
+                }
+
+                // Autofit columns
+                worksheet.Cells.AutoFitColumns();
+
+                // Save the Excel file
+                FileInfo excelFile = new FileInfo("Orders.xlsx");
+                excelPackage.SaveAs(excelFile);
+            }
+
+            MessageBox.Show("Orders exported to Excel successfully!");
+        }
+
+
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<Order> orders = (List<Order>)_orderRepository.GetOrders();
+                ExportToExcel(orders);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting orders to Excel: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

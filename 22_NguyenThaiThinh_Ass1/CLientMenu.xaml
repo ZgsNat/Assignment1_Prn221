@@ -1,0 +1,54 @@
+﻿<Window x:Class="_22_NguyenThaiThinh_Ass1.CLientMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_22_NguyenThaiThinh_Ass1"
+        mc:Ignorable="d"
+        Title="CLientMenu"
+        Height="450"
+        Width="800">
+    <Grid>
+        <StackPanel>
+            <Canvas Height="450">
+                <Label Content="Client Menu"
+                       Canvas.Left="252"
+                       Canvas.Top="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="50"
+                       FontWeight="Bold"
+                       Foreground="Green" />
+                <Button Content="View"
+                        Canvas.Left="322"
+                        Canvas.Top="120"
+                        Height="77"
+                        Width="155"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Click="Button_Click" />
+                <Button Content="Update"
+                        Canvas.Left="322"
+                        Canvas.Top="225"
+                        Height="77"
+                        Width="155"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Click="Button_Click_1" />
+                <Button Content="View Order"
+                        Canvas.Left="322"
+                        Canvas.Top="332"
+                        Height="76"
+                        Width="156"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Click="Button_Click_2" />
+            </Canvas>
+        </StackPanel>
+
+    </Grid>
+</Window>

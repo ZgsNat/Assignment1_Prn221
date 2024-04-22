@@ -15,6 +15,15 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="Back"
+                    Click="Back_Click"
+                    HorizontalAlignment="Left"
+                    Margin="10"
+                    Width="80"
+                    VerticalAlignment="Top" />
+        </StackPanel>
         <Label Content="FStore"
                HorizontalAlignment="Center"
                Margin="0,21,0,0"
